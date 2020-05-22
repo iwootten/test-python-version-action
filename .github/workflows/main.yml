@@ -9,3 +9,6 @@ jobs:
       - uses: iwootten/update-pyenv@v1
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
+        with:
+          commit-message: "Update to latest python version"
+          title: Update .python-version
