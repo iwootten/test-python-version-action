@@ -10,5 +10,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2.7.1
         with:
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           commit-message: "Update to latest python version"
           title: Update .python-version
