@@ -1,0 +1,9 @@
+on: [push]
+
+jobs:
+  update_python_version:
+    runs-on: ubuntu-latest
+    name: A job to update python
+    steps:
+      - uses: actions/checkout@v2
+      - uses: iwootten/update-pyenv@v1
