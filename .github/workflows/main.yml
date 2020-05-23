@@ -9,10 +9,10 @@ jobs:
         with:
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - uses: iwootten/update-python-version@v1
-        id: update-pyenv
+        id: update-python
       - name: Create Pull Request
-        if: ${{ steps.update-pyenv.outputs.original-version != steps.update-pyenv.outputs.python-version }}
-        uses: peter-evans/create-pull-request@v2.7.1
+        if: ${{ steps.update-python.updated }}
+        uses: peter-evans/create-pull-request@v2
         with: 
-          commit-message: "Update .python-version to ${{ steps.update-pyenv.outputs.python-version }}"
-          title: Update .python-version to ${{ steps.update-pyenv.outputs.python-version }}
+          commit-message: "Update .python-version to ${{ steps.update-python.outputs.latest-version }}"
+          title: Update .python-version to ${{ steps.update-python.outputs.latest-version }}
