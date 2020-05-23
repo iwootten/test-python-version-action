@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - uses: iwootten/update-pyenv@v1
+      - uses: iwootten/update-python-version@v1
         id: update-pyenv
       - name: Create Pull Request
         if: ${{ steps.update-pyenv.outputs.original-version != steps.update-pyenv.outputs.python-version }}
