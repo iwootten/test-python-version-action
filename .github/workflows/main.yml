@@ -11,7 +11,7 @@ jobs:
       - uses: iwootten/update-pyenv@v1
         id: update-pyenv
       - name: Create Pull Request
-        if: ${{ steps.update-pyenv.outputs.original-version }} != ${{ steps.update-pyenv.outputs.python-version }}
+        if: ${{ steps.update-pyenv.outputs.original-version != steps.update-pyenv.outputs.python-version }}
         uses: peter-evans/create-pull-request@v2.7.1
         with: 
           commit-message: "Update .python-version to ${{ steps.update-pyenv.outputs.python-version }}"
