@@ -11,7 +11,7 @@ jobs:
       - uses: iwootten/update-python-version@v1
         id: update-python
       - name: Create Pull Request
-        if: ${{ steps.update-python.outputs.updated }}
+        if: ${{ steps.update-python.outputs.updated == true }}
         uses: peter-evans/create-pull-request@v2
         with: 
           commit-message: "Update .python-version to ${{ steps.update-python.outputs.latest-version }}"
